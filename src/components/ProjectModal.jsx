@@ -1,0 +1,147 @@
+import React, { useEffect } from 'react';
+import { X, ExternalLink, CheckCircle2, Layers, Cpu, Database } from 'lucide-react';
+import { GithubIcon } from './SocialIcons';
+
+export default function ProjectModal({ project, onClose }) {
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'auto';
+    };
+  }, [onClose]);
+
+  if (!project) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+      <div 
+        className="glass-panel w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl border border-white/10 p-6 sm:p-8 relative shadow-2xl bg-[#0c0c11]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-6 right-6 p-2 rounded-full border border-white/10 hover:bg-white/10 text-neutral-400 hover:text-white transition-colors cursor-pointer"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        {/* Header */}
+        <div className="mb-8 pr-12">
+          <div className="flex items-center gap-3 text-xs font-mono-tag text-amber-300 uppercase tracking-wider mb-2">
+            <span>{project.number} / {project.category}</span>
+            <span>·</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-neutral-300">
+              {project.type}
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-editorial text-white mb-2">
+            {project.title}
+          </h2>
+          <p className="text-neutral-300 text-base font-light">
+            {project.subtitle}
+          </p>
+        </div>
+
+        {/* Browser Mockup Header */}
+        <div className="rounded-xl border border-white/10 bg-[#060608] overflow-hidden mb-8">
+          <div className="px-4 py-2.5 border-b border-white/10 bg-white/[0.03] flex items-center justify-between text-xs font-mono-tag text-neutral-500">
+            <div className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+            </div>
+            <span className="text-neutral-400 font-mono text-[11px]">{project.browserUrl}</span>
+          </div>
+          {project.image && (
+            <div className="relative w-full max-h-[440px] overflow-hidden border-b border-white/10 bg-[#060608]">
+              <img
+                src={project.image}
+                alt={`${project.title} Interface`}
+                className="w-full h-auto object-cover object-top"
+              />
+              <div className="absolute bottom-0 inset-x-0 px-4 py-2 bg-black/80 backdrop-blur-md border-t border-white/10 flex items-center justify-between text-[11px] font-mono-tag tracking-wider text-neutral-300">
+                <span className="text-amber-300 font-medium flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  AUTHENTIC PRODUCTION SCREENSHOT
+                </span>
+                <span className="text-neutral-400">100% VERIFIED INTERFACE</span>
+              </div>
+            </div>
+          )}
+          <div className="p-6 bg-gradient-to-b from-white/[0.02] to-transparent">
+            <p className="text-neutral-200 text-sm leading-relaxed mb-4">
+              {project.description}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {project.stack.map((tech, i) => (
+                <span
+                  key={i}
+                  className="px-2.5 py-1 rounded-md text-xs font-mono-tag border border-white/10 bg-white/5 text-neutral-300"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Architectural Highlights */}
+        <div className="mb-8">
+          <h4 className="text-xs font-mono-tag uppercase tracking-wider text-amber-400 mb-4 flex items-center gap-2">
+            <Cpu className="w-4 h-4" />
+            Key Engineering & Architecture Highlights
+          </h4>
+          <div className="space-y-3">
+            {project.highlights.map((highlight, idx) => (
+              <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl border border-white/5 bg-white/[0.02]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <span className="text-sm text-neutral-300 font-light leading-relaxed">
+                  {highlight}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Links Footer */}
+        <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+          <div className="text-xs font-mono-tag text-neutral-400">
+            METRICS: <span className="text-neutral-200">{project.metrics}</span>
+          </div>
+
+          <div className="flex items-center gap-3">
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white text-xs font-medium transition-colors"
+              >
+                <GithubIcon className="w-3.5 h-3.5" />
+                <span>GitHub Repository</span>
+              </a>
+            )}
+
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-5 py-2 rounded-full bg-amber-500 hover:bg-amber-400 text-neutral-950 text-xs font-semibold shadow-lg shadow-amber-500/20 transition-all"
+              >
+                <span>Launch Live Platform</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
