@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AlertCircle, ArrowUpRight, Check, Copy, Loader2, Mail, Phone, Send } from 'lucide-react';
+import { AlertCircle, ArrowUpRight, Check, Copy, ExternalLink, Mail, Phone } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { personalInfo } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
@@ -7,9 +7,8 @@ import { GithubIcon, LinkedinIcon } from './SocialIcons';
 export default function ContactSection() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const [copiedDraft, setCopiedDraft] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [needsActivation, setNeedsActivation] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
@@ -37,62 +36,74 @@ export default function ContactSection() {
     setTimeout(() => setCopiedPhone(false), 2500);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) return;
+  const getSubject = () => `Portfolio Inquiry from ${formData.name.trim() || 'Visitor'}`;
 
-    setIsSubmitting(true);
-    setErrorMessage('');
-    setNeedsActivation(false);
+  const getBody = () => {
+    return `${formData.message.trim()}\n\n---\nSender Name: ${formData.name.trim()}\nSender Email: ${formData.email.trim()}\nSent via Shashwat Balamwar Portfolio`;
+  };
 
-    try {
-      const response = await fetch(`https://formsubmit.co/ajax/${personalInfo.email}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          message: formData.message.trim(),
-          _subject: `New Portfolio Inquiry from ${formData.name.trim()}`,
-          _captcha: 'false',
-          _template: 'table'
-        })
-      });
+  const getGmailUrl = () => {
+    const subject = encodeURIComponent(getSubject());
+    const body = encodeURIComponent(getBody());
+    return `https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}&su=${subject}&body=${body}`;
+  };
 
-      const data = await response.json().catch(() => ({}));
+  const getMailtoUrl = () => {
+    const subject = encodeURIComponent(getSubject());
+    const body = encodeURIComponent(getBody());
+    return `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
+  };
 
-      if (response.ok && (data.success === 'true' || data.success === true)) {
-        setSubmitted(true);
-        confetti({
-          particleCount: 80,
-          spread: 80,
-          origin: { y: 0.7 }
-        });
-        setFormData({ name: '', email: '', message: '' });
-      } else if (data.message && data.message.toLowerCase().includes('activate')) {
-        // FormSubmit sends an activation link on the very first submission
-        setNeedsActivation(true);
-        setSubmitted(true);
-        confetti({
-          particleCount: 60,
-          spread: 70,
-          origin: { y: 0.7 }
-        });
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        throw new Error(data.message || 'Unable to submit your message at this time.');
-      }
-    } catch (err) {
-      console.error('Contact form submission error:', err);
-      setErrorMessage(
-        err.message || 'Failed to dispatch message automatically. Please click below to send via your email app.'
-      );
-    } finally {
-      setIsSubmitting(false);
+  const handleSendGmail = (e) => {
+    if (e) e.preventDefault();
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setErrorMessage('Please fill in your name, email, and message before dispatching.');
+      return;
     }
+    setErrorMessage('');
+    window.open(getGmailUrl(), '_blank', 'noopener,noreferrer');
+    setSubmitted(true);
+    confetti({
+      particleCount: 70,
+      spread: 70,
+      origin: { y: 0.7 },
+      colors: ['#f59e0b', '#6366f1', '#10b981']
+    });
+  };
+
+  const handleSendMailto = (e) => {
+    if (e) e.preventDefault();
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setErrorMessage('Please fill in your name, email, and message before dispatching.');
+      return;
+    }
+    setErrorMessage('');
+    window.location.href = getMailtoUrl();
+    setSubmitted(true);
+    confetti({
+      particleCount: 70,
+      spread: 70,
+      origin: { y: 0.7 },
+      colors: ['#f59e0b', '#6366f1', '#10b981']
+    });
+  };
+
+  const handleCopyDraft = () => {
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setErrorMessage('Please fill in your name, email, and message first to copy.');
+      return;
+    }
+    setErrorMessage('');
+    const fullDraft = `To: ${personalInfo.email}\nSubject: ${getSubject()}\n\n${getBody()}`;
+    navigator.clipboard.writeText(fullDraft);
+    setCopiedDraft(true);
+    confetti({
+      particleCount: 40,
+      spread: 50,
+      origin: { y: 0.8 },
+      colors: ['#f59e0b', '#10b981']
+    });
+    setTimeout(() => setCopiedDraft(false), 2500);
   };
 
   return (
@@ -207,50 +218,61 @@ export default function ContactSection() {
           </div>
         </div>
 
-        {/* Right Column: Interactive Quick Message */}
+        {/* Right Column: Direct Dispatcher Form */}
         <div className="lg:col-span-6">
           <div className="glass-panel rounded-3xl p-8 border border-white/10 relative">
-            <h3 className="text-xl font-editorial text-white mb-2">
-              Send a direct dispatch
-            </h3>
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-xl font-editorial text-white">
+                Send a direct dispatch
+              </h3>
+              <span className="text-[10px] font-mono-tag px-2.5 py-0.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 uppercase tracking-wider">
+                Direct To Email
+              </span>
+            </div>
             <p className="text-xs text-neutral-400 font-light mb-6">
-              Drop a note directly with your project proposal or role inquiry.
+              Write your note below. It will open directly in your mail app pre-filled to <span className="text-amber-300">{personalInfo.email}</span>.
             </p>
 
             {submitted ? (
-              <div className="py-12 text-center flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-full ${needsActivation ? 'bg-amber-500/20 border border-amber-500/30 text-amber-400' : 'bg-emerald-500/20 border border-emerald-500/30 text-emerald-400'} flex items-center justify-center mb-4`}>
-                  {needsActivation ? <Mail className="w-7 h-7" /> : <Check className="w-7 h-7" />}
+              <div className="py-8 text-center flex flex-col items-center">
+                <div className="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mb-4">
+                  <Check className="w-7 h-7" />
                 </div>
                 <h4 className="text-xl font-editorial text-white mb-2">
-                  {needsActivation ? 'One-Time Activation Required' : 'Message Dispatched'}
+                  Dispatch Prepared & Opened
                 </h4>
                 <p className="text-xs text-neutral-300 max-w-md leading-relaxed mb-6">
-                  {needsActivation ? (
-                    <>
-                      FormSubmit sent a one-time confirmation email to <span className="text-amber-300 font-mono-tag">{personalInfo.email}</span>. Click the <strong className="text-white">"Activate Form"</strong> link in your inbox. Once activated, every message from this website will land straight in your inbox!
-                    </>
-                  ) : (
-                    <>
-                      Thank you for reaching out. Your note has been delivered to <span className="text-amber-300 font-mono-tag">{personalInfo.email}</span>. I will review and reply promptly.
-                    </>
-                  )}
+                  Your email client has opened with your message addressed to <span className="text-amber-300 font-mono-tag">{personalInfo.email}</span>. Simply click <strong className="text-white">"Send"</strong> in your email window to deliver it straight to my inbox!
                 </p>
+
+                <div className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md mb-6">
+                  <a
+                    href={getGmailUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-1/2 py-2.5 px-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-xs font-mono-tag text-amber-300 hover:text-white flex items-center justify-center gap-2 transition-colors"
+                  >
+                    <Mail className="w-3.5 h-3.5" />
+                    <span>Re-open Gmail Web</span>
+                  </a>
+                  <a
+                    href={getMailtoUrl()}
+                    className="w-full sm:w-1/2 py-2.5 px-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-xs font-mono-tag text-neutral-300 hover:text-white flex items-center justify-center gap-2 transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>Re-open Mail App</span>
+                  </a>
+                </div>
+
                 <button
-                  onClick={() => {
-                    setSubmitted(false);
-                    setNeedsActivation(false);
-                  }}
-                  className="px-5 py-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-xs text-neutral-200 hover:text-white font-mono-tag transition-colors cursor-pointer"
+                  onClick={() => setSubmitted(false)}
+                  className="px-5 py-2 rounded-xl text-xs text-neutral-400 hover:text-white font-mono-tag transition-colors underline cursor-pointer"
                 >
-                  Send Another Message
+                  Edit message or draft another note
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Honeypot field for spam prevention */}
-                <input type="text" name="_honey" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
-
+              <form onSubmit={handleSendGmail} className="space-y-4">
                 <div>
                   <label className="text-[11px] font-mono-tag text-neutral-400 uppercase tracking-wider block mb-1.5">
                     Your Name
@@ -261,8 +283,7 @@ export default function ContactSection() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Hiring Manager / Collaborator"
-                    disabled={isSubmitting}
-                    className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#09090d] text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-amber-400/50 transition-colors disabled:opacity-50"
+                    className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#09090d] text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-amber-400/50 transition-colors"
                   />
                 </div>
 
@@ -276,8 +297,7 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="recruiter@company.com"
-                    disabled={isSubmitting}
-                    className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#09090d] text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-amber-400/50 transition-colors disabled:opacity-50"
+                    className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#09090d] text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-amber-400/50 transition-colors"
                   />
                 </div>
 
@@ -290,45 +310,59 @@ export default function ContactSection() {
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Describe your role or project..."
-                    disabled={isSubmitting}
-                    className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#09090d] text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-amber-400/50 transition-colors resize-none disabled:opacity-50"
+                    placeholder="Describe your role or project inquiry..."
+                    className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#09090d] text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-amber-400/50 transition-colors resize-none"
                   />
                 </div>
 
                 {errorMessage && (
-                  <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/20 text-xs text-red-300 flex flex-col gap-2">
-                    <div className="flex items-start gap-2">
-                      <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
-                      <span>{errorMessage}</span>
-                    </div>
-                    <a
-                      href={`mailto:${personalInfo.email}?subject=${encodeURIComponent(`Portfolio Inquiry from ${formData.name || 'Visitor'}`)}&body=${encodeURIComponent((formData.message || '') + `\n\nFrom: ${formData.name} (${formData.email})`)}`}
-                      className="inline-flex items-center gap-1.5 text-amber-300 hover:text-amber-200 font-mono-tag text-[11px] underline ml-6"
-                    >
-                      <Mail className="w-3.5 h-3.5" />
-                      <span>Click here to send directly via your email app</span>
-                    </a>
+                  <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-xs text-red-300 flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
+                    <span>{errorMessage}</span>
                   </div>
                 )}
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 disabled:opacity-60 disabled:cursor-not-allowed text-neutral-950 font-semibold text-xs font-mono-tag tracking-wider uppercase flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 transition-all cursor-pointer"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                      <span>Transmitting Message...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-3.5 h-3.5" />
-                      <span>Send Direct Message</span>
-                    </>
-                  )}
-                </button>
+                {/* Primary Action Buttons */}
+                <div className="space-y-2.5 pt-2">
+                  <button
+                    type="button"
+                    onClick={handleSendGmail}
+                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-neutral-950 font-semibold text-xs font-mono-tag tracking-wider uppercase flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 transition-all cursor-pointer"
+                  >
+                    <Mail className="w-4 h-4" />
+                    <span>Send via Gmail Web</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleSendMailto}
+                    className="w-full py-3 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white font-medium text-xs font-mono-tag tracking-wider uppercase flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-neutral-300" />
+                    <span>Send via Default Mail App (Outlook / Apple Mail)</span>
+                  </button>
+                </div>
+
+                {/* Quick Copy Draft Option */}
+                <div className="pt-2 text-center">
+                  <button
+                    type="button"
+                    onClick={handleCopyDraft}
+                    className="inline-flex items-center gap-1.5 text-xs text-neutral-400 hover:text-amber-300 font-mono-tag transition-colors cursor-pointer"
+                  >
+                    {copiedDraft ? (
+                      <>
+                        <Check className="w-3.5 h-3.5 text-emerald-400" />
+                        <span className="text-emerald-300">Draft Copied to Clipboard!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5" />
+                        <span>Or copy formatted message to clipboard</span>
+                      </>
+                    )}
+                  </button>
+                </div>
               </form>
             )}
           </div>
