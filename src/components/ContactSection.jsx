@@ -46,26 +46,60 @@ export default function ContactSection() {
     setIsSubmitting(true);
     setErrorMessage('');
 
+    const payload = {
+      access_key: '659c2144-c445-4138-bd7f-f4ea6f474b4b',
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      message: formData.message.trim(),
+      subject: `New Portfolio Inquiry from ${formData.name.trim()} (${formData.email.trim()})`,
+      from_name: `${formData.name.trim()} via Portfolio`
+    };
+
     try {
-      // 1-Click in-page dispatch: first attempt custom API, then fallback to direct endpoint
-      let response;
+      let isSuccess = false;
+
+      // 1. Primary: Direct in-page AJAX to Web3Forms API
       try {
-        response = await fetch('/api/contact', {
+        const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: formData.name.trim(),
-            email: formData.email.trim(),
-            message: formData.message.trim()
-          })
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
         });
-      } catch {
-        response = null;
+        const data = await response.json().catch(() => ({}));
+        if (data.success || response.ok) {
+          isSuccess = true;
+        }
+      } catch (err) {
+        console.warn('Web3Forms direct API skipped/blocked, trying serverless proxy:', err);
       }
 
-      if (!response || !response.ok) {
-        // Fallback directly to FormSubmit AJAX endpoint
-        response = await fetch(`https://formsubmit.co/ajax/${personalInfo.email}`, {
+      // 2. Secondary: Fallback to serverless /api/contact endpoint
+      if (!isSuccess) {
+        try {
+          const apiRes = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: formData.name.trim(),
+              email: formData.email.trim(),
+              message: formData.message.trim()
+            })
+          });
+          const apiData = await apiRes.json().catch(() => ({}));
+          if (apiRes.ok && apiData.success) {
+            isSuccess = true;
+          }
+        } catch (apiErr) {
+          console.warn('Serverless endpoint skipped, trying direct FormSubmit fallback:', apiErr);
+        }
+      }
+
+      // 3. Tertiary: Fallback directly to FormSubmit
+      if (!isSuccess) {
+        const fallbackRes = await fetch(`https://formsubmit.co/ajax/${personalInfo.email}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -80,16 +114,23 @@ export default function ContactSection() {
             _captcha: 'false'
           })
         });
+        if (fallbackRes.ok) {
+          isSuccess = true;
+        }
       }
 
-      setSubmitted(true);
-      confetti({
-        particleCount: 75,
-        spread: 70,
-        origin: { y: 0.7 },
-        colors: ['#6366f1', '#3b82f6', '#10b981']
-      });
-      setFormData({ name: '', email: '', message: '' });
+      if (isSuccess) {
+        setSubmitted(true);
+        confetti({
+          particleCount: 75,
+          spread: 70,
+          origin: { y: 0.7 },
+          colors: ['#6366f1', '#3b82f6', '#10b981']
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setErrorMessage('Unable to deliver message right now. Please email directly at balamwarshashwat@gmail.com.');
+      }
     } catch (err) {
       console.error('Contact submit error:', err);
       setErrorMessage('Network error transmitting message. Please try again.');

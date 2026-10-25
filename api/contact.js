@@ -19,7 +19,34 @@ export default async function handler(req, res) {
   }
 
   try {
-    const response = await fetch('https://formsubmit.co/ajax/balamwarshashwat@gmail.com', {
+    // 1. Direct Web3Forms submission with verified access key
+    const web3Response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        access_key: '659c2144-c445-4138-bd7f-f4ea6f474b4b',
+        name: name.trim(),
+        email: email.trim(),
+        message: message.trim(),
+        subject: `New Portfolio Message from ${name.trim()} (${email.trim()})`,
+        from_name: `${name.trim()} via Portfolio`
+      })
+    });
+
+    const web3Data = await web3Response.json().catch(() => ({}));
+
+    if (web3Data.success || web3Response.ok) {
+      return res.status(200).json({
+        success: true,
+        message: 'Message delivered directly to your inbox via Web3Forms.'
+      });
+    }
+
+    // 2. Secondary fallback via FormSubmit if needed
+    const fallbackResponse = await fetch('https://formsubmit.co/ajax/balamwarshashwat@gmail.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -35,11 +62,11 @@ export default async function handler(req, res) {
       })
     });
 
-    await response.json().catch(() => ({}));
+    await fallbackResponse.json().catch(() => ({}));
 
     return res.status(200).json({
       success: true,
-      message: 'Message delivered directly to balamwarshashwat@gmail.com.'
+      message: 'Message delivered directly to your email.'
     });
   } catch (error) {
     console.error('API Contact Error:', error);
