@@ -15,7 +15,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-[#060608] text-[#e4e4eb] bg-grid-pattern overflow-x-hidden selection:bg-amber-500/20 selection:text-amber-200">
+    <div className="relative min-h-screen bg-[#09090b] text-[#f4f4f5] bg-grid-pattern overflow-x-hidden selection:bg-indigo-500/30 selection:text-indigo-200">
       {/* Top Floating Glass Navbar */}
       <Navbar />
 

@@ -1,97 +1,106 @@
 import React from 'react';
-import { ArrowDown, ArrowUpRight, Award, FileText, Sparkles, Terminal } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Mail } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
-import { InstagramIcon, LinkedinIcon } from './SocialIcons';
+import { GithubIcon, InstagramIcon, LinkedinIcon } from './SocialIcons';
 
 export default function Hero() {
   return (
-    <section id="top" className="relative pt-24 pb-20 px-6 max-w-5xl mx-auto flex flex-col items-center text-center">
-      {/* Top Ambient Glow */}
+    <section id="top" className="relative pt-28 pb-20 px-6 max-w-5xl mx-auto flex flex-col items-center text-center">
+      {/* Ambient Radial Top Glow */}
       <div className="ambient-glow-top" />
 
-      {/* Live Status Pill */}
-      <div className="relative z-10 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-300 text-xs font-mono-tag mb-8 shadow-sm backdrop-blur-md">
+      {/* Modern Status Badge */}
+      <div className="relative z-10 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-xs font-mono-tag mb-8 backdrop-blur-md">
         <span className="w-2 h-2 rounded-full bg-emerald-400 live-pulse" />
-        <span className="tracking-wide uppercase text-[11px] font-medium">
-          {personalInfo.availability}
+        <span className="font-medium tracking-wide">
+          Available for Software Engineering Roles & Summer Internships
         </span>
       </div>
 
-      {/* Editorial Kicker */}
-      <div className="relative z-10 flex flex-wrap items-center justify-center gap-2 text-xs font-mono-tag tracking-widest uppercase text-neutral-400 mb-6">
-        <span>B.TECH IT (4TH YEAR) @ SVPCET NAGPUR</span>
-        <span className="text-amber-500/50">/</span>
-        <span>FULL-STACK & APPLIED AI</span>
-        <span className="text-amber-500/50">/</span>
-        <span className="text-amber-300 font-medium">INTERSTELLA 2024 WINNER</span>
-      </div>
-
-      {/* Main Headline with Editorial Serif */}
-      <h1 className="relative z-10 text-5xl sm:text-7xl md:text-8xl font-normal tracking-tight text-white leading-[1.08] mb-8 max-w-4xl font-editorial">
-        Shashwat <em className="italic font-normal text-amber-200/90 font-serif">Balamwar</em>
+      {/* Main Headline */}
+      <h1 className="relative z-10 text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-5">
+        Shashwat Balamwar
       </h1>
 
-      {/* Subtitle / Real Positioning */}
-      <p className="relative z-10 text-lg sm:text-xl md:text-2xl text-neutral-300 font-light max-w-2xl leading-relaxed mb-10">
-        Engineering full-stack web platforms, interactive 3D WebGL experiences, and applied AI systems.
+      {/* Primary Role Tagline */}
+      <p className="relative z-10 text-xl sm:text-2xl md:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-indigo-200 to-zinc-400 max-w-3xl mb-6">
+        Full-Stack Systems & Applied AI Engineer
       </p>
 
-      {/* Action Buttons */}
-      <div className="relative z-10 flex flex-wrap items-center justify-center gap-4">
+      {/* Concrete Bio Description */}
+      <p className="relative z-10 text-sm sm:text-base md:text-lg text-zinc-400 font-normal max-w-2xl leading-relaxed mb-10">
+        4th-year IT Engineering student at <strong className="text-zinc-200 font-medium">SVPCET Nagpur</strong>. 1st Place Hackathon Winner (Interstella 2024) and Technical Coordinator for INFOTSAV 2K25. Architecting production web software with React, Node.js, PostgreSQL, and Google GenAI.
+      </p>
+
+      {/* Primary Action Buttons */}
+      <div className="relative z-10 flex flex-wrap items-center justify-center gap-3.5 mb-8">
         <a
           href="#work"
-          className="flex items-center gap-2.5 px-6 py-3 rounded-full bg-white text-neutral-950 font-medium text-sm hover:bg-neutral-200 transition-all shadow-xl hover:shadow-2xl hover:shadow-white/10 group cursor-pointer"
+          className="flex items-center gap-2 px-6 py-3 rounded-full bg-white text-zinc-950 font-semibold text-xs font-mono-tag uppercase tracking-wider hover:bg-zinc-200 transition-all shadow-lg hover:shadow-xl group cursor-pointer"
         >
-          <span>Explore Selected Work</span>
-          <ArrowDown className="w-4 h-4 text-neutral-700 group-hover:translate-y-0.5 transition-transform" />
+          <span>Explore Projects</span>
+          <ArrowDown className="w-3.5 h-3.5 text-zinc-700 group-hover:translate-y-0.5 transition-transform" />
         </a>
 
+        <a
+          href="#contact"
+          className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/[0.12] bg-zinc-900/80 hover:bg-zinc-800 text-white font-medium text-xs font-mono-tag uppercase tracking-wider transition-all backdrop-blur-md cursor-pointer"
+        >
+          <Mail className="w-3.5 h-3.5 text-zinc-400" />
+          <span>Get In Touch</span>
+        </a>
+      </div>
+
+      {/* Social Links Row */}
+      <div className="relative z-10 flex flex-wrap items-center justify-center gap-2.5">
         <a
           href={personalInfo.socials.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 px-5 py-3 rounded-full border border-indigo-500/20 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-200 hover:text-white font-medium text-sm transition-all backdrop-blur-md group"
+          className="flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 hover:text-white font-mono-tag text-xs transition-colors"
         >
-          <LinkedinIcon className="w-4 h-4 text-indigo-400 group-hover:scale-110 transition-transform" />
+          <LinkedinIcon className="w-3.5 h-3.5 text-indigo-400" />
           <span>LinkedIn</span>
-          <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          <ArrowUpRight className="w-3 h-3 text-zinc-500" />
         </a>
 
         <a
           href={personalInfo.socials.instagram}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 px-5 py-3 rounded-full border border-pink-500/20 bg-pink-500/10 hover:bg-pink-500/20 text-pink-200 hover:text-white font-medium text-sm transition-all backdrop-blur-md group"
+          className="flex items-center gap-2 px-4 py-2 rounded-full border border-pink-500/20 bg-pink-500/10 hover:bg-pink-500/20 text-pink-300 hover:text-white font-mono-tag text-xs transition-colors"
         >
-          <InstagramIcon className="w-4 h-4 text-pink-400 group-hover:scale-110 transition-transform" />
+          <InstagramIcon className="w-3.5 h-3.5 text-pink-400" />
           <span>Instagram</span>
-          <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          <ArrowUpRight className="w-3 h-3 text-zinc-500" />
         </a>
 
         <a
           href={personalInfo.socials.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 px-5 py-3 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 text-white font-medium text-sm transition-all backdrop-blur-md group"
+          className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/[0.08] bg-zinc-900/60 hover:bg-zinc-800 text-zinc-300 hover:text-white font-mono-tag text-xs transition-colors"
         >
-          <Terminal className="w-4 h-4 text-amber-400" />
-          <span>GitHub Code</span>
-          <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          <GithubIcon className="w-3.5 h-3.5 text-zinc-400" />
+          <span>GitHub</span>
+          <ArrowUpRight className="w-3 h-3 text-zinc-500" />
         </a>
       </div>
 
-      {/* Decorative Bottom Bar */}
-      <div className="w-full mt-20 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono-tag text-neutral-400">
-        <div className="flex items-center gap-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-          <span>BASED IN NAGPUR, MH · PURSUING B.TECH IT</span>
+      {/* Bottom Technical Spec Bar */}
+      <div className="w-full mt-16 pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono-tag text-zinc-400">
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+          <span>NAGPUR, MH · SVPCET B.TECH IT · GPA 7.0/10</span>
         </div>
-        <div className="flex items-center gap-6">
-          <a href="#about" className="hover:text-amber-300 transition-colors">01 / STORY</a>
+        <div className="flex items-center gap-6 text-zinc-400">
+          <a href="#work" className="hover:text-white transition-colors">PROJECTS</a>
           <span>·</span>
-          <a href="#work" className="hover:text-amber-300 transition-colors">02 / WORK</a>
+          <a href="#arsenal" className="hover:text-white transition-colors">TECH STACK</a>
           <span>·</span>
-          <a href="#experience" className="hover:text-amber-300 transition-colors">03 / LEADERSHIP</a>
+          <a href="#experience" className="hover:text-white transition-colors">LEADERSHIP</a>
+          <span>·</span>
+          <a href="#resume" className="hover:text-white transition-colors">RESUME</a>
         </div>
       </div>
     </section>

@@ -148,8 +148,8 @@ export const projects = [
     type: "Hackathon Winning Project",
     badge: "Award Winner (1st Prize)",
     image: "/images/projects/vrlearn.png",
-    description: "An interactive 3D virtual reality learning environment developed for experiential STEM education. Engineered with Three.js, WebGL shaders, Cannon.js physics simulation, and GSAP camera trajectories.",
-    stack: ["Three.js", "WebGL", "GSAP", "Cannon-es", "HTML5 Canvas"],
+    description: "An interactive 3D virtual reality learning environment developed for experiential STEM education. Engineered with Three.js, WebGL shaders, Cannon.js physics simulation, and dynamic camera trajectories.",
+    stack: ["Three.js", "WebGL", "Cannon-es", "HTML5 Canvas", "Interactive Shaders"],
     liveUrl: "https://github.com/shashwat3100",
     githubUrl: "https://github.com/shashwat3100",
     metrics: "1st Place Winner · Ramdeobaba Univ · Three.js 3D",
@@ -283,12 +283,12 @@ export const disciplines = [
     skills: ["PostgreSQL", "Node.js", "Express.js", "React", "Next.js", "REST APIs", "C++", "Java"]
   },
   {
-    id: "3d",
+    id: "ai-systems",
     number: "02",
-    title: "Interactive 3D & WebGL Experiences",
-    tagline: "Hardware-accelerated visual computing for the modern web.",
-    description: "Extensive background in 3D modeling, spatial environment design, and interactive simulations. Winner of Interstella 2024 Hackathon for 3D educational software; building high-performance Three.js applications and spatial WebGL graphics.",
-    skills: ["Three.js", "WebGL", "Blender (3D Modeling & Texturing)", "Interactive Shaders", "GSAP Animations", "Spatial UI"]
+    title: "Applied AI & Intelligent Web Systems",
+    tagline: "Connecting Large Language Models with production applications.",
+    description: "Architecting generative AI applications, voice-enabled interfaces, and intelligent data systems. Experienced in integrating Google Gemini GenAI SDK, vector retrieval patterns, and orchestrating full-stack AI user experiences.",
+    skills: ["Google Gemini GenAI", "Voice Interfaces", "Prompt Engineering", "Full-Stack AI", "Next.js", "Docker", "Python ML"]
   },
   {
     id: "leadership",
@@ -310,8 +310,8 @@ export const techStack = [
     items: ["React", "Next.js", "Node.js", "Express.js", "PostgreSQL", "Vite", "Tailwind CSS", "RESTful APIs", "HTML5 / CSS3"]
   },
   {
-    category: "3D Web & Interactive Graphics",
-    items: ["Three.js", "WebGL", "Blender (Modeling & Texturing)", "Interactive Shaders", "GSAP Animations", "Spatial Simulation"]
+    category: "Interactive 3D & Graphics",
+    items: ["Three.js", "WebGL", "Interactive Shaders", "Canvas 2D/3D", "Cannon-es Physics", "Spatial UI"]
   },
   {
     category: "AI, Cloud & Engineering Tools",
