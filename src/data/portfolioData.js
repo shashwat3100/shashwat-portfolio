@@ -89,16 +89,6 @@ export const experience = [
       "Coordinated financial oversight and transparent resource allocation for college events, ensuring zero deficit.",
       "Collaborated with corporate sponsors, vendor contracts, and student entrepreneurship programs."
     ]
-  },
-  {
-    role: "Promotional Member",
-    organization: "TECHNEX 2K25",
-    period: "2025",
-    type: "Outreach & Growth",
-    points: [
-      "Spearheaded digital and on-ground promotional campaigns, driving record participation and member registrations.",
-      "Collaborated with diverse teams to resolve rapid event logistics and student onboarding."
-    ]
   }
 ];
 
@@ -107,7 +97,7 @@ export const awardsAndCerts = [
     title: "1st Place Winner — Interstella 2024 Hackathon",
     issuer: "Ramdeobaba University, Nagpur",
     year: "2024",
-    description: "Awarded 1st Prize for building an interactive 3D digital orrery & gamified space learning platform that simplified complex astronomical physics for students.",
+    description: "Awarded 1st Prize for building an interactive 3D digital orrery & space learning platform that simplified complex astronomical physics for students.",
     tag: "Hackathon Champion"
   },
   {
@@ -123,13 +113,6 @@ export const awardsAndCerts = [
     year: "Verified",
     description: "Comprehensive training in Java OOP principles, multithreading, exception handling, and enterprise architecture.",
     tag: "Software Engineering"
-  },
-  {
-    title: "PromptWars 2026 Competitive Submission",
-    issuer: "PromptWars Global Hackathon",
-    year: "2026",
-    description: "Architected and submitted 'Blind Spot', an automated cognitive bias and assumptions detector with Next.js and Google GenAI.",
-    tag: "AI Competition"
   }
 ];
 
@@ -206,10 +189,10 @@ export const projects = [
     title: "Blind Spot",
     subtitle: "See What Your Thinking Might Be Missing",
     category: "Cognitive AI & Hackathon",
-    type: "PromptWars 2026 Submission",
+    type: "Cognitive AI Application",
     badge: "Competition Ready",
     image: "/images/projects/blindspot.png",
-    description: "A cognitive bias and assumption-challenging web application built for PromptWars 2026. Features adaptive inquiry trees, blind spot radar mapping, and automated flow test suites.",
+    description: "A cognitive bias and assumption-challenging web application. Features adaptive inquiry trees, blind spot radar mapping, and automated flow test suites powered by Google GenAI.",
     stack: ["Next.js (App Router)", "TypeScript", "Google GenAI SDK", "Framer Motion", "Docker"],
     liveUrl: "https://github.com/shashwat3100/shashwat_balamwar_promptwar",
     githubUrl: "https://github.com/shashwat3100/shashwat_balamwar_promptwar",
@@ -219,7 +202,7 @@ export const projects = [
       "Interactive blind spot radar charting hidden assumptions in real-time",
       "Automated 6-flow end-to-end test suite and production Docker container"
     ],
-    browserUrl: "blindspot.promptwars.io",
+    browserUrl: "blindspot-ai.vercel.app",
     color: "#ec4899"
   },
   {
@@ -302,10 +285,10 @@ export const disciplines = [
   {
     id: "3d",
     number: "02",
-    title: "3D Environments & Game Development",
-    tagline: "Immersive spatial design in Blender & Unity.",
-    description: "Extensive background in 3D modeling, spatial environment design, and interactive simulations. Winner of Interstella 2024 Hackathon for 3D educational software; created college digital twins and WebGL graphics.",
-    skills: ["Blender (3D Modeling & Texturing)", "Unity 3D Engine", "C# Scripting", "Three.js / WebGL", "Level Design", "Lighting & Shaders"]
+    title: "Interactive 3D & WebGL Experiences",
+    tagline: "Hardware-accelerated visual computing for the modern web.",
+    description: "Extensive background in 3D modeling, spatial environment design, and interactive simulations. Winner of Interstella 2024 Hackathon for 3D educational software; building high-performance Three.js applications and spatial WebGL graphics.",
+    skills: ["Three.js", "WebGL", "Blender (3D Modeling & Texturing)", "Interactive Shaders", "GSAP Animations", "Spatial UI"]
   },
   {
     id: "leadership",
@@ -327,8 +310,8 @@ export const techStack = [
     items: ["React", "Next.js", "Node.js", "Express.js", "PostgreSQL", "Vite", "Tailwind CSS", "RESTful APIs", "HTML5 / CSS3"]
   },
   {
-    category: "3D, Game Dev & Creative",
-    items: ["Blender (Modeling & Texturing)", "Unity 3D Engine", "C#", "Three.js / WebGL", "Game UI/UX Design", "Spatial Simulation"]
+    category: "3D Web & Interactive Graphics",
+    items: ["Three.js", "WebGL", "Blender (Modeling & Texturing)", "Interactive Shaders", "GSAP Animations", "Spatial Simulation"]
   },
   {
     category: "AI, Cloud & Engineering Tools",

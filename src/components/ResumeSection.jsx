@@ -20,19 +20,17 @@ EDUCATION:
 POSITIONS OF RESPONSIBILITY:
 - Technical Event Coordinator | INFOTSAV 2K25 (09/2025 - 10/2025)
 - Former Finance Head & Core Member | Entrepreneurship Cell (E-Cell), SVPCET (2024 - 2025)
-- Promotional Member | TECHNEX 2K25
 - Elected Class Representative (4th Year)
 
 AWARDS & HONORS:
 - 1st Place Winner | Interstella 2024 Hackathon, Ramdeobaba University (Interactive 3D Orrery)
 - Data Structures & Algorithms Using C++ (Certified)
 - Java Object-Oriented Programming (Certified)
-- PromptWars 2026 Hackathon Finalist
 
 TECHNICAL SKILLS:
 - Languages & Core: C++, Java, JavaScript, TypeScript, Python, SQL, DSA
 - Web & Systems: React, Next.js, Node.js, Express, PostgreSQL, Tailwind CSS
-- 3D & Creative: Blender (3D Modeling & Texturing), Unity 3D Engine, C#
+- 3D & Web Graphics: Three.js, WebGL, Blender (3D Modeling & Texturing), GSAP
 - Financial Operations: Budgeting, Financial Analysis, Resource Allocation`;
 
     navigator.clipboard.writeText(resumeText);
@@ -223,7 +221,7 @@ TECHNICAL SKILLS:
                 </div>
                 <div>
                   <span className="text-[11px] font-mono-tag text-neutral-400 block uppercase mb-1">3D & Interactive</span>
-                  <p>Blender 3D, Unity 3D Engine, C#, Three.js, WebGL, Game UI</p>
+                  <p>Three.js, WebGL, Blender 3D, GSAP, Spatial Interfaces</p>
                 </div>
                 <div>
                   <span className="text-[11px] font-mono-tag text-neutral-400 block uppercase mb-1">Leadership</span>
@@ -231,7 +229,7 @@ TECHNICAL SKILLS:
                 </div>
                 <div>
                   <span className="text-[11px] font-mono-tag text-neutral-400 block uppercase mb-1">AI & Cloud</span>
-                  <p>Google Gemini SDK, Docker, PromptWars Hackathon, Git</p>
+                  <p>Google Gemini SDK, Docker, Git & GitHub, Linux / CLI</p>
                 </div>
               </div>
             </div>

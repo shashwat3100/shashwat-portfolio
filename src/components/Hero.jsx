@@ -32,7 +32,7 @@ export default function Hero() {
 
       {/* Subtitle / Real Positioning */}
       <p className="relative z-10 text-lg sm:text-xl md:text-2xl text-neutral-300 font-light max-w-2xl leading-relaxed mb-10">
-        Engineering full-stack web platforms, interactive 3D simulations in Blender & Unity, and applied AI systems.
+        Engineering full-stack web platforms, interactive 3D WebGL experiences, and applied AI systems.
       </p>
 
       {/* Action Buttons */}

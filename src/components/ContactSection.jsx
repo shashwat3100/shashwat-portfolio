@@ -116,7 +116,7 @@ export default function ContactSection() {
             <em className="italic text-amber-200/90 font-serif">extraordinary together.</em>
           </h2>
           <p className="text-neutral-300 text-base sm:text-lg font-light leading-relaxed mb-8 max-w-lg">
-            I am actively seeking software engineering internships, graduate engineering roles, and collaborative projects across Full-Stack, AI systems, or 3D/game development.
+            I am actively seeking software engineering internships, graduate engineering roles, and collaborative projects across Full-Stack, AI systems, or interactive 3D graphics.
           </p>
 
           {/* Quick Copy Email Box */}

@@ -32,7 +32,7 @@ const row2Skills = [
   { name: 'Google Gemini SDK', category: 'Applied AI', level: 'LLM Pipelines', icon: Sparkles, color: '#8b5cf6' },
   { name: 'WebGL', category: 'Graphics', level: 'Hardware Accelerated', icon: Box, color: '#ec4899' },
   { name: 'Blender', category: 'Spatial Design', level: '3D Assets & Lighting', icon: Box, color: '#f97316' },
-  { name: 'Unity 3D', category: 'Game Dev', level: 'C# Simulation', icon: Box, color: '#ffffff' },
+  { name: 'GSAP', category: 'Animation', level: 'Kinematic & Timelines', icon: Sparkles, color: '#88ce02' },
   { name: 'Docker', category: 'DevOps', level: 'Containerized', icon: Workflow, color: '#2496ed' },
   { name: 'Git & GitHub', category: 'Version Control', level: 'CI / CD Workflows', icon: Terminal, color: '#f05032' },
   { name: 'Vite', category: 'Tooling', level: 'Sub-second HMR', icon: Flame, color: '#646cff' },
@@ -48,7 +48,7 @@ export default function TechArsenal() {
     if (activeCategory === 'all') return true;
     if (activeCategory === 'languages') return ['Language', 'Core CS'].includes(item.category);
     if (activeCategory === 'web') return ['Frontend', 'Framework', 'Backend', 'Database', 'API Engine', 'Design System'].includes(item.category);
-    if (activeCategory === 'ai-3d') return ['3D WebGL', 'Applied AI', 'Graphics', 'Spatial Design', 'Game Dev', '3D Math'].includes(item.category);
+    if (activeCategory === 'ai-3d') return ['3D WebGL', 'Applied AI', 'Graphics', 'Spatial Design', 'Animation', '3D Math'].includes(item.category);
     if (activeCategory === 'tools') return ['DevOps', 'Version Control', 'Tooling', 'Testing', 'Systems'].includes(item.category);
     return true;
   };
