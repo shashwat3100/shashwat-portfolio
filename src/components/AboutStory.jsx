@@ -74,7 +74,7 @@ export default function AboutStory() {
                 <div>
                   <span className="text-[11px] font-mono-tag text-zinc-400 block uppercase">College & Major</span>
                   <span className="text-sm text-zinc-200 font-medium">St. Vincent Pallotti College of Engg. (SVPCET)</span>
-                  <span className="text-xs text-indigo-300/90 block mt-0.5 font-mono">Current GPA: 7.0 / 10 · 4th Year</span>
+                  <span className="text-xs text-indigo-300/90 block mt-0.5 font-mono">CGPA: 6.91 / 10 · 4th Year</span>
                 </div>
               </div>
 

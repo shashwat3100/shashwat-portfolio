@@ -9,28 +9,36 @@ export default function ResumeSection() {
   const handleCopySummary = () => {
     const resumeText = `SHASHWAT MANISH BALAMWAR
 Nagpur, Maharashtra 440034 | ${personalInfo.email} | ${personalInfo.phone}
-LinkedIn: ${personalInfo.socials.linkedin} | Instagram: ${personalInfo.socials.instagram} | GitHub: ${personalInfo.socials.github}
+Portfolio: https://shashwatbalamwar.vercel.app/ | GitHub: ${personalInfo.socials.github} | LinkedIn: ${personalInfo.socials.linkedin}
 
 EDUCATION:
 - B.Tech in Information Technology & Engineering (2023 - 2027)
-  St. Vincent Pallotti College of Engineering & Technology (SVPCET), Nagpur | GPA: 7.0 / 10
-- HSC (Science PCM) | St. Xavier's High School, Nagpur | CBSE | 65%
-- SSC | Narayana Vidyalayam, Nagpur | CBSE | 75%
+  St. Vincent Pallotti College of Engineering & Technology (SVPCET), Nagpur | CGPA: 6.91 / 10
+- HSC (Science PCM) | St. Xavier's High School, Nagpur | CBSE | 65.20%
+- SSC | Narayana Vidyalayam, Nagpur | CBSE | 78.33%
+
+INTERNSHIPS:
+- Web Developer Intern | Clustor Computing (11/08/2026 - 01/02/2027)
+  Built an adaptive Interview Question Recommendation Engine analyzing DSA attempt patterns to identify topic weaknesses with custom dashboards and XP leaderboards.
+
+PROJECTS:
+- PrepPilot AI: Full-stack placement prep platform with PostgreSQL, Gemini Voice Assistant & spaced-repetition revision drill system. (preppilot-ai-one.vercel.app)
+- Saai Rishi Polymers: Commercial corporate website and product catalog for industrial adhesives and polymers. (saairishipolymers.in)
+- Syndicar: Automotive FinTech group-buying platform unlocking institutional fleet discounts with real-time savings calculator.
 
 POSITIONS OF RESPONSIBILITY:
 - Technical Event Coordinator | INFOTSAV 2K25 (09/2025 - 10/2025)
 - Former Finance Head & Core Member | Entrepreneurship Cell (E-Cell), SVPCET (2024 - 2025)
 
 AWARDS & HONORS:
-- 1st Place Winner | Interstella 2024 Hackathon, Ramdeobaba University (Interactive 3D Orrery)
+- 1st Place Winner | Interstella 2024 Hackathon, Ramdeobaba University (Interactive 3D Virtual Learning)
 - Data Structures & Algorithms Using C++ (Certified)
 - Java Object-Oriented Programming (Certified)
 
 TECHNICAL SKILLS:
 - Languages & Core: C++, Java, JavaScript, TypeScript, Python, SQL, DSA
 - Web & Systems: React, Next.js, Node.js, Express, PostgreSQL, Tailwind CSS
-- 3D & Graphics: Three.js, WebGL, Cannon-es, Canvas 2D/3D
-- Financial Operations: Budgeting, Financial Analysis, Resource Allocation`;
+- 3D & Graphics: Three.js, WebGL, Cannon-es, Canvas 2D/3D`;
 
     navigator.clipboard.writeText(resumeText);
     setCopied(true);

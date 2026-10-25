@@ -91,7 +91,7 @@ export default function Hero() {
       <div className="w-full mt-16 pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono-tag text-zinc-400">
         <div className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-          <span>NAGPUR, MH · SVPCET B.TECH IT · GPA 7.0/10</span>
+          <span>NAGPUR, MH · SVPCET B.TECH IT · CGPA 6.91/10</span>
         </div>
         <div className="flex items-center gap-6 text-zinc-400">
           <a href="#work" className="hover:text-white transition-colors">PROJECTS</a>

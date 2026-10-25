@@ -5,9 +5,11 @@ export const personalInfo = {
   headline: "Engineering Intelligent Web Platforms, 3D Experiences & Applied AI Systems",
   location: "Nagpur, Maharashtra, India",
   email: "balamwarshashwat@gmail.com",
+  collegeEmail: "shashwatbalamwar.23@stvincentngp.edu.in",
   phone: "+91 7058633701",
+  website: "https://shashwatbalamwar.vercel.app/",
   availability: "Available for Software Engineering Roles & Summer Internships",
-  summary: "4th-year (Final Year) Information Technology & Engineering undergraduate at St. Vincent Pallotti College of Engineering (SVPCET), Nagpur. 1st Place Hackathon Winner (Interstella 2024), INFOTSAV 2K25 Technical Coordinator, and full-stack software engineer who architects scalable web platforms, applied AI systems, and interactive 3D WebGL experiences.",
+  summary: "4th-year Information Technology & Engineering undergraduate at St. Vincent Pallotti College of Engineering (SVPCET), Nagpur. Web Developer Intern at Clustor Computing, 1st Place Hackathon Winner (Interstella 2024), and INFOTSAV 2K25 Technical Coordinator.",
   socials: {
     github: "https://github.com/shashwat3100",
     linkedin: "https://www.linkedin.com/in/shashwat-balamwar-a3333a28a",
@@ -36,7 +38,7 @@ export const metrics = [
   {
     value: "4th Year",
     label: "B.Tech IT · SVPCET",
-    detail: "INFOTSAV 2K25 Technical Coordinator & E-Cell Lead"
+    detail: "CGPA 6.91/10 · Clustor Computing Intern · INFOTSAV Coordinator"
   }
 ];
 
@@ -44,8 +46,8 @@ export const education = [
   {
     degree: "B.Tech in Information Technology & Engineering",
     institution: "St. Vincent Pallotti College of Engineering & Technology, Nagpur (SVPCET)",
-    period: "2023 — 2026/2027",
-    grade: "GPA: 7.0 / 10 (Currently in 4th Year / Final Year)",
+    period: "2023 — 2027",
+    grade: "CGPA: 6.91 / 10",
     highlights: [
       "Core Technical Coordinator for INFOTSAV 2K25 flagship national symposium",
       "Former Finance Head at Entrepreneurship Cell (E-Cell) overseeing student initiatives"
@@ -55,19 +57,30 @@ export const education = [
     degree: "Higher Secondary Certificate (HSC) — Science (PCM)",
     institution: "St. Xavier's High School, Nagpur",
     period: "2021 — 2023",
-    grade: "CBSE Board | 65%",
+    grade: "CBSE Board | 65.20%",
     highlights: ["Focus on Mathematics, Physics, Chemistry, and Computer Science fundamentals"]
   },
   {
     degree: "Secondary School Certificate (SSC)",
     institution: "Narayana Vidyalayam, Nagpur",
     period: "Completed 2021",
-    grade: "CBSE Board | 75%",
+    grade: "CBSE Board | 78.33%",
     highlights: ["Strong foundation in computational logic and analytical problem solving"]
   }
 ];
 
 export const experience = [
+  {
+    role: "Web Developer Intern",
+    organization: "Clustor Computing | IT Services",
+    period: "11/08/2026 — 01/02/2027",
+    type: "Industry Internship · Full-Stack Development",
+    points: [
+      "Engineered an Interview Question Recommendation Engine analyzing student DSA attempt history to identify concept weaknesses in DP, Strings, and Recursion.",
+      "Implemented question tagging and an adaptive daily quiz system dynamically tailoring difficulty progression based on individual strengths and learning gaps.",
+      "Built an interactive performance analytics dashboard visualizing topic-wise accuracy, learning curves, and XP-driven leaderboard mechanics."
+    ]
+  },
   {
     role: "Technical Event Coordinator",
     organization: "INFOTSAV 2K25 — Flagship Annual Tech Fest",
