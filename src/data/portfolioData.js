@@ -153,97 +153,9 @@ export const projects = [
     color: "#6366f1"
   },
   {
-    id: "vr-learning",
-    number: "02",
-    title: "VRLearn: 3D Spatial Learning Environment",
-    subtitle: "1st Place Winner · Interstella 2024 Hackathon (Ramdeobaba University)",
-    category: "Interactive 3D & WebGL",
-    type: "Hackathon Winning Project",
-    badge: "Award Winner (1st Prize)",
-    image: "/images/projects/vrlearn.png",
-    description: "An interactive 3D virtual reality learning environment developed for experiential STEM education. Engineered with Three.js, WebGL shaders, Cannon.js physics simulation, and dynamic camera trajectories.",
-    stack: ["Three.js", "WebGL", "Cannon-es", "HTML5 Canvas", "Interactive Shaders"],
-    liveUrl: "https://github.com/shashwat3100",
-    githubUrl: "https://github.com/shashwat3100",
-    metrics: "1st Place Winner · Ramdeobaba Univ · Three.js 3D",
-    highlights: [
-      "Awarded 1st Place for technical innovation and educational engagement at Interstella 2024",
-      "Interactive 3D GLTF headset inspection with dynamic spatial lighting and orbit controls",
-      "Real-time physics-assisted particle field and responsive perspective camera transitions"
-    ],
-    browserUrl: "vrlearn.interactive3d",
-    color: "#8b5cf6"
-  },
-  {
-    id: "syndicar",
-    number: "03",
-    title: "Syndicar",
-    subtitle: "India's Premier Group Car Buying Platform",
-    category: "Automotive FinTech",
-    type: "Marketplace Platform",
-    badge: "Live Interactive App",
-    image: "/images/projects/syndicar.png",
-    description: "A collaborative automotive purchasing platform that aggregates individual car buyers into high-volume pools to unlock institutional fleet discounts, paired with a live reverse-bidding dealer portal.",
-    stack: ["React", "Vite", "Tailwind CSS", "Canvas Confetti", "Lucide Icons"],
-    liveUrl: "https://github.com/shashwat3100",
-    githubUrl: "https://github.com/shashwat3100",
-    metrics: "FinTech · Dual Persona · Real-Time Bidding",
-    highlights: [
-      "Tiered buyer pools with dynamic discount unlocks based on member milestones",
-      "Real-time car savings calculator comparing dealer MRP vs. collective pool pricing",
-      "Dealer bidding portal where authorized dealerships compete for verified buyer volume"
-    ],
-    browserUrl: "syndicar.app",
-    color: "#f59e0b"
-  },
-  {
-    id: "blind-spot",
-    number: "04",
-    title: "Blind Spot",
-    subtitle: "See What Your Thinking Might Be Missing",
-    category: "Cognitive AI & Hackathon",
-    type: "Cognitive AI Application",
-    badge: "Competition Ready",
-    image: "/images/projects/blindspot.png",
-    description: "A cognitive bias and assumption-challenging web application. Features adaptive inquiry trees, blind spot radar mapping, and automated flow test suites powered by Google GenAI.",
-    stack: ["Next.js (App Router)", "TypeScript", "Google GenAI SDK", "Framer Motion", "Docker"],
-    liveUrl: "https://github.com/shashwat3100/shashwat_balamwar_promptwar",
-    githubUrl: "https://github.com/shashwat3100/shashwat_balamwar_promptwar",
-    metrics: "GenAI · Automated Tests · Dockerized",
-    highlights: [
-      "Dynamic prompt evaluation against 12+ cognitive bias archetypes",
-      "Interactive blind spot radar charting hidden assumptions in real-time",
-      "Automated 6-flow end-to-end test suite and production Docker container"
-    ],
-    browserUrl: "blindspot-ai.vercel.app",
-    color: "#ec4899"
-  },
-  {
-    id: "shreevastram",
-    number: "05",
-    title: "Shree Vastram Sportswear",
-    subtitle: "High-Performance Menswear & Match Kits E-Commerce Platform",
-    category: "Modern E-Commerce",
-    type: "Production Web Store",
-    badge: "Active Production App",
-    image: "/images/projects/shreevastram.png",
-    description: "Modern sportswear and menswear e-commerce platform built with React 19 and Tailwind CSS v4. Features instant category filtering, interactive product showcases, dynamic currency formatting, and mobile-optimized cart flows.",
-    stack: ["React 19", "Tailwind CSS v4", "TypeScript", "Vite", "Lucide Icons"],
-    liveUrl: "https://github.com/shashwat3100",
-    githubUrl: "https://github.com/shashwat3100",
-    metrics: "React 19 · Tailwind v4 · Instant Catalog",
-    highlights: [
-      "Fast client-side product catalog with instant category filtering across jerseys, sneakers, and tracksuits",
-      "Interactive product modal with size selector, color swatches, and cart drawer",
-      "Optimized for high-conversion mobile checkout and responsive viewports"
-    ],
-    browserUrl: "shreevastram.store",
-    color: "#06b6d4"
-  },
-  {
     id: "sairishi",
-    number: "06",
-    title: "Saairishi Polymers Corporate Platform",
+    number: "02",
+    title: "Saai Rishi Polymers Corporate Platform",
     subtitle: "Industrial Polymers Platform & Digital Catalog",
     category: "Enterprise B2B",
     type: "Commercial Deployment",
@@ -264,7 +176,7 @@ export const projects = [
   },
   {
     id: "wildventure",
-    number: "07",
+    number: "03",
     title: "WildVenture",
     subtitle: "Adventure & Camping Travel Booking Platform",
     category: "Interactive Tourism",
@@ -283,6 +195,94 @@ export const projects = [
     ],
     browserUrl: "shashwat3100.github.io/WildVenture-Adventure",
     color: "#10b981"
+  },
+  {
+    id: "vr-learning",
+    number: "04",
+    title: "VRLearn: 3D Spatial Learning Environment",
+    subtitle: "1st Place Winner · Interstella 2024 Hackathon (Ramdeobaba University)",
+    category: "Interactive 3D & WebGL",
+    type: "Hackathon Winning Project",
+    badge: "1st Prize Winner",
+    image: "/images/projects/vrlearn.png",
+    description: "An interactive 3D virtual reality learning environment developed for experiential STEM education. Engineered with Three.js, WebGL shaders, Cannon.js physics simulation, and dynamic camera trajectories.",
+    stack: ["Three.js", "WebGL", "Cannon-es", "HTML5 Canvas", "Interactive Shaders"],
+    liveUrl: null,
+    githubUrl: "https://github.com/shashwat3100",
+    metrics: "1st Place Winner · Ramdeobaba Univ · Three.js 3D",
+    highlights: [
+      "Awarded 1st Place for technical innovation and educational engagement at Interstella 2024",
+      "Interactive 3D GLTF headset inspection with dynamic spatial lighting and orbit controls",
+      "Real-time physics-assisted particle field and responsive perspective camera transitions"
+    ],
+    browserUrl: "github.com/shashwat3100/vrlearn",
+    color: "#8b5cf6"
+  },
+  {
+    id: "syndicar",
+    number: "05",
+    title: "Syndicar",
+    subtitle: "India's Premier Group Car Buying Platform",
+    category: "Automotive FinTech",
+    type: "Marketplace Platform",
+    badge: "Verified Codebase",
+    image: "/images/projects/syndicar.png",
+    description: "A collaborative automotive purchasing platform that aggregates individual car buyers into high-volume pools to unlock institutional fleet discounts, paired with a live reverse-bidding dealer portal.",
+    stack: ["React 19", "Vite", "Tailwind CSS", "Canvas Confetti", "Lucide Icons"],
+    liveUrl: null,
+    githubUrl: "https://github.com/shashwat3100",
+    metrics: "FinTech · Dual Persona · Real-Time Bidding",
+    highlights: [
+      "Tiered buyer pools with dynamic discount unlocks based on member milestones",
+      "Real-time car savings calculator comparing dealer MRP vs. collective pool pricing",
+      "Dealer bidding portal where authorized dealerships compete for verified buyer volume"
+    ],
+    browserUrl: "github.com/shashwat3100/syndicar",
+    color: "#f59e0b"
+  },
+  {
+    id: "blind-spot",
+    number: "06",
+    title: "Blind Spot",
+    subtitle: "See What Your Thinking Might Be Missing",
+    category: "Cognitive AI & Hackathon",
+    type: "Cognitive AI Application",
+    badge: "Dockerized System",
+    image: "/images/projects/blindspot.png",
+    description: "A cognitive bias and assumption-challenging web application. Features adaptive inquiry trees, blind spot radar mapping, and automated flow test suites powered by Google GenAI.",
+    stack: ["Next.js (App Router)", "TypeScript", "Google GenAI SDK", "Docker"],
+    liveUrl: null,
+    githubUrl: "https://github.com/shashwat3100/shashwat_balamwar_promptwar",
+    metrics: "GenAI · Automated Tests · Dockerized",
+    highlights: [
+      "Dynamic prompt evaluation against 12+ cognitive bias archetypes",
+      "Interactive blind spot radar charting hidden assumptions in real-time",
+      "Automated 6-flow end-to-end test suite and production Docker container"
+    ],
+    browserUrl: "github.com/shashwat3100/blindspot",
+    color: "#ec4899"
+  },
+  {
+    id: "shreevastram",
+    number: "07",
+    title: "Shree Vastram Sportswear",
+    subtitle: "High-Performance Menswear & Match Kits E-Commerce Platform",
+    category: "Modern E-Commerce",
+    type: "Production Web Store",
+    badge: "Verified Codebase",
+    image: "/images/projects/shreevastram.png",
+    description: "Modern sportswear and menswear e-commerce platform built with React 19 and Tailwind CSS v4. Features instant category filtering, interactive product showcases, dynamic currency formatting, and mobile-optimized cart flows.",
+    stack: ["React 19", "Tailwind CSS v4", "TypeScript", "Vite", "Lucide Icons"],
+    liveUrl: null,
+    githubUrl: "https://github.com/shashwat3100",
+    metrics: "React 19 · Tailwind v4 · Instant Catalog",
+    highlights: [
+      "Fast client-side product catalog with instant category filtering across jerseys, sneakers, and tracksuits",
+      "Interactive product modal with size selector, color swatches, and cart drawer",
+      "Optimized for high-conversion mobile checkout and responsive viewports"
+    ],
+    browserUrl: "github.com/shashwat3100/shreevastram",
+    color: "#06b6d4"
   }
 ];
 

@@ -12,7 +12,7 @@ export default function ProjectShowcase() {
     if (filter === 'all') return true;
     if (filter === 'ai') return p.category.includes('AI') || p.category.includes('Voice');
     if (filter === 'fullstack') return p.stack.includes('Node.js') || p.stack.includes('PostgreSQL') || p.stack.includes('Next.js');
-    if (filter === 'live') return p.badge.includes('Live');
+    if (filter === 'live') return Boolean(p.liveUrl);
     return true;
   });
 
@@ -191,12 +191,19 @@ export default function ProjectShowcase() {
                       loading="lazy"
                     />
                     
-                    {/* Live Interface Indicator */}
+                    {/* Live Interface / Codebase Indicator */}
                     <div className="absolute bottom-0 inset-x-0 px-3.5 py-1.5 bg-black/85 backdrop-blur-md border-t border-white/[0.08] flex items-center justify-between text-[10px] font-mono-tag tracking-wider text-zinc-300 z-10">
-                      <span className="text-indigo-300 font-medium flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        AUTHENTIC LIVE INTERFACE
-                      </span>
+                      {project.liveUrl ? (
+                        <span className="text-emerald-300 font-medium flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          AUTHENTIC LIVE WEBSITE
+                        </span>
+                      ) : (
+                        <span className="text-zinc-400 font-medium flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-zinc-500" />
+                          VERIFIED CODEBASE
+                        </span>
+                      )}
                       <span className="text-zinc-400 group-hover/img:text-white transition-colors">
                         INSPECT ↗
                       </span>
