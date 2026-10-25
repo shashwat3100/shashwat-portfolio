@@ -31,7 +31,7 @@ export default function AboutStory() {
               I am <strong className="text-white font-medium">Shashwat Balamwar</strong>, a 4th-year (Final Year) Information Technology & Engineering student at <strong className="text-amber-200/90 font-normal">St. Vincent Pallotti College of Engineering & Technology (SVPCET), Nagpur</strong>.
             </p>
             <p>
-              My work centers on engineering production web software, scalable architectures, and applied AI systems. I combine technical craftsmanship across modern web frameworks with collaborative leadership honed as Class Representative, Technical Coordinator for INFOTSAV 2K25, and student operations at the Entrepreneurship Cell (E-Cell).
+              My work centers on engineering production web software, scalable architectures, and applied AI systems. I combine technical craftsmanship across modern web frameworks with collaborative leadership honed as Technical Coordinator for INFOTSAV 2K25 and student operations at the Entrepreneurship Cell (E-Cell).
             </p>
             <p>
               In 2024, my team was awarded <strong className="text-amber-300 font-medium">1st Place at the Interstella Hackathon (Ramdeobaba University)</strong> for engineering an interactive 3D virtual learning platform. Whether developing AI placement tools with PostgreSQL or 3D spatial simulations with Three.js, I build software that is structurally sound, fast, and visually compelling.
@@ -39,9 +39,6 @@ export default function AboutStory() {
           </div>
 
           <div className="mt-8 pt-6 border-t border-white/5 flex flex-wrap gap-4 text-xs font-mono-tag text-neutral-400">
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-neutral-200">
-              CLASS REPRESENTATIVE (4TH YEAR)
-            </span>
             <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-neutral-200">
               INFOTSAV 2K25 COORDINATOR
             </span>
@@ -81,7 +78,7 @@ export default function AboutStory() {
                 <div>
                   <span className="text-xs font-mono-tag text-neutral-400 block uppercase">Positions of Responsibility</span>
                   <span className="text-sm text-neutral-200">Coordinator (INFOTSAV 2K25) & Former E-Cell Lead</span>
-                  <span className="text-xs text-neutral-400 block mt-0.5 font-light">Class Representative & Event Operations</span>
+                  <span className="text-xs text-neutral-400 block mt-0.5 font-light">Symposium & Campus Operations</span>
                 </div>
               </div>
 

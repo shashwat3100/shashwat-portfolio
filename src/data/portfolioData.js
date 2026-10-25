@@ -7,10 +7,11 @@ export const personalInfo = {
   email: "balamwarshashwat@gmail.com",
   phone: "+91 7058633701",
   availability: "Available for Software Engineering Roles & Summer Internships",
-  summary: "4th-year (Final Year) Information Technology & Engineering undergraduate at St. Vincent Pallotti College of Engineering (SVPCET), Nagpur. 1st Place Hackathon Winner (Interstella 2024), Class Representative, and full-stack software engineer who architects scalable web platforms, applied AI systems, and interactive 3D WebGL experiences.",
+  summary: "4th-year (Final Year) Information Technology & Engineering undergraduate at St. Vincent Pallotti College of Engineering (SVPCET), Nagpur. 1st Place Hackathon Winner (Interstella 2024), INFOTSAV 2K25 Technical Coordinator, and full-stack software engineer who architects scalable web platforms, applied AI systems, and interactive 3D WebGL experiences.",
   socials: {
     github: "https://github.com/shashwat3100",
     linkedin: "https://www.linkedin.com/in/shashwat-balamwar-a3333a28a",
+    instagram: "https://www.instagram.com/_shashwat_balamwar_?xtok=MWhkcno5cTFjb2FnbQ==",
     email: "mailto:balamwarshashwat@gmail.com",
     phone: "tel:+917058633701"
   }
@@ -35,7 +36,7 @@ export const metrics = [
   {
     value: "4th Year",
     label: "B.Tech IT · SVPCET",
-    detail: "Elected Class Representative & INFOTSAV 2K25 Coordinator"
+    detail: "INFOTSAV 2K25 Technical Coordinator & E-Cell Lead"
   }
 ];
 
@@ -46,7 +47,6 @@ export const education = [
     period: "2023 — 2026/2027",
     grade: "GPA: 7.0 / 10 (Currently in 4th Year / Final Year)",
     highlights: [
-      "Elected Class Representative (4th Year), liaising between faculty and 70+ students",
       "Core Technical Coordinator for INFOTSAV 2K25 flagship national symposium",
       "Former Finance Head at Entrepreneurship Cell (E-Cell) overseeing student initiatives"
     ]
@@ -295,7 +295,7 @@ export const disciplines = [
     number: "03",
     title: "Technical Leadership & Systems Operations",
     tagline: "Bridging engineering rigor with operational execution.",
-    description: "From coordinating regional technical symposiums like INFOTSAV 2K25 to representing student cohorts as Class Representative and managing student operations at E-Cell, I ensure projects deliver measurable, reliable outcomes.",
+    description: "From coordinating regional technical symposiums like INFOTSAV 2K25 to managing student operations at E-Cell, I ensure projects deliver measurable, reliable outcomes.",
     skills: ["Technical Event Coordination", "Team Leadership", "Resource Planning", "Cross-Functional Collaboration", "Operational Execution"]
   }
 ];

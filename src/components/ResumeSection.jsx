@@ -9,7 +9,7 @@ export default function ResumeSection() {
   const handleCopySummary = () => {
     const resumeText = `SHASHWAT MANISH BALAMWAR
 Nagpur, Maharashtra 440034 | ${personalInfo.email} | ${personalInfo.phone}
-LinkedIn: ${personalInfo.socials.linkedin} | GitHub: ${personalInfo.socials.github}
+LinkedIn: ${personalInfo.socials.linkedin} | Instagram: ${personalInfo.socials.instagram} | GitHub: ${personalInfo.socials.github}
 
 EDUCATION:
 - B.Tech in Information Technology & Engineering (2023 - 2027)
@@ -20,7 +20,6 @@ EDUCATION:
 POSITIONS OF RESPONSIBILITY:
 - Technical Event Coordinator | INFOTSAV 2K25 (09/2025 - 10/2025)
 - Former Finance Head & Core Member | Entrepreneurship Cell (E-Cell), SVPCET (2024 - 2025)
-- Elected Class Representative (4th Year)
 
 AWARDS & HONORS:
 - 1st Place Winner | Interstella 2024 Hackathon, Ramdeobaba University (Interactive 3D Orrery)
@@ -123,8 +122,13 @@ TECHNICAL SKILLS:
             <a href={`tel:${personalInfo.phone}`} className="text-neutral-300 hover:text-amber-300 block">
               {personalInfo.phone}
             </a>
-            <div className="text-amber-400/90 pt-1">
-              LINKEDIN: /in/shashwat-balamwar-a3333a28a
+            <div className="pt-1 flex flex-col gap-0.5">
+              <a href={personalInfo.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-amber-400/90 hover:text-amber-300">
+                LINKEDIN: /in/shashwat-balamwar-a3333a28a
+              </a>
+              <a href={personalInfo.socials.instagram} target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200">
+                INSTAGRAM: @_shashwat_balamwar_
+              </a>
             </div>
           </div>
         </div>

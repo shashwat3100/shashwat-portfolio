@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AlertCircle, ArrowUpRight, Check, Copy, ExternalLink, Mail, Phone } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { personalInfo } from '../data/portfolioData';
-import { GithubIcon, LinkedinIcon } from './SocialIcons';
+import { GithubIcon, InstagramIcon, LinkedinIcon } from './SocialIcons';
 
 export default function ContactSection() {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -201,7 +201,18 @@ export default function ContactSection() {
               className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-indigo-500/20 bg-indigo-500/10 hover:bg-indigo-500/20 text-xs font-mono-tag text-indigo-300 hover:text-white transition-colors"
             >
               <LinkedinIcon className="w-4 h-4 text-indigo-400" />
-              <span>LinkedIn Profile</span>
+              <span>LinkedIn</span>
+              <ArrowUpRight className="w-3 h-3 text-neutral-400" />
+            </a>
+
+            <a
+              href={personalInfo.socials.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-pink-500/20 bg-pink-500/10 hover:bg-pink-500/20 text-xs font-mono-tag text-pink-300 hover:text-white transition-colors"
+            >
+              <InstagramIcon className="w-4 h-4 text-pink-400" />
+              <span>Instagram</span>
               <ArrowUpRight className="w-3 h-3 text-neutral-400" />
             </a>
 

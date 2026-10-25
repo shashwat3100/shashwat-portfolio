@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowDown, ArrowUpRight, Award, FileText, Sparkles, Terminal } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
+import { InstagramIcon, LinkedinIcon } from './SocialIcons';
 
 export default function Hero() {
   return (
@@ -49,9 +50,21 @@ export default function Hero() {
           href={personalInfo.socials.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 px-5 py-3 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 text-white font-medium text-sm transition-all backdrop-blur-md group"
+          className="flex items-center gap-2 px-5 py-3 rounded-full border border-indigo-500/20 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-200 hover:text-white font-medium text-sm transition-all backdrop-blur-md group"
         >
-          <span>LinkedIn Profile</span>
+          <LinkedinIcon className="w-4 h-4 text-indigo-400 group-hover:scale-110 transition-transform" />
+          <span>LinkedIn</span>
+          <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        </a>
+
+        <a
+          href={personalInfo.socials.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-5 py-3 rounded-full border border-pink-500/20 bg-pink-500/10 hover:bg-pink-500/20 text-pink-200 hover:text-white font-medium text-sm transition-all backdrop-blur-md group"
+        >
+          <InstagramIcon className="w-4 h-4 text-pink-400 group-hover:scale-110 transition-transform" />
+          <span>Instagram</span>
           <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </a>
 

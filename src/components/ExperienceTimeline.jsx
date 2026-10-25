@@ -22,7 +22,7 @@ export default function ExperienceTimeline() {
           <em className="italic text-amber-200/90 font-serif">Leading teams, technical symposiums & student initiatives.</em>
         </h2>
         <p className="text-neutral-400 text-sm sm:text-base font-light max-w-2xl">
-          Real organizational accountability: coordinating regional technical symposiums, representing student cohorts as Class Representative, and student initiatives.
+          Real organizational accountability: coordinating regional technical symposiums and leading campus student initiatives.
         </p>
       </div>
 
